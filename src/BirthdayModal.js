@@ -6,6 +6,7 @@ import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
 import data from "./assets/database.json";
 import Person from "./Person";
+import "moment/locale/az";
 
 const style = {
   position: "absolute",
@@ -43,18 +44,14 @@ export default function BirthdayModal() {
             display: "flex",
             justifyContent: "center",
             flexWrap: "wrap",
-            width: 800,
+            width: "60%",
             outline: "none",
             borderRadius: 14,
           }}
         >
           <Box sx={style}>
             <Box style={{ display: "flex", flexWrap: "wrap" }}>
-              {data
-                .filter((person) => person.date.startsWith("04.01"))
-                .map((person) => (
-                  <Person key={person.id} data={person} />
-                ))}
+              Məlumatlar müdafiə nazirliyinin saytına əsasən hazırlanmışdır
             </Box>
           </Box>
         </Fade>

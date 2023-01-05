@@ -1,4 +1,14 @@
-.person-container{
-    width: 150px;
-    height: 200px;
+@keyframes display {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.person-container {
+  width: 150px;
+  height: 200px;
+  animation: display 2.5s ease-in-out 1;
 }

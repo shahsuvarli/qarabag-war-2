@@ -1,5 +1,6 @@
 import "./App.css";
 import BirthdayModal from "./BirthdayModal";
+import Carousel from "./Carousel";
 import Header from "./Header";
 import Main from "./Main";
 
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <BirthdayModal/>
       <Header/>
+      <Carousel/>
       <Main />
     </div>
   );
