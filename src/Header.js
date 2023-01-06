@@ -12,13 +12,33 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import DownloadIcon from "@mui/icons-material/Download";
+import { Link } from "react-router-dom";
+import { changeLanguage } from "i18next";
+import { useTranslation } from "react-i18next";
 
-const pages = ["Siyahı", "Məlumat", "Əlaqə"];
+const pages = [
+  { name: "list", link: "/list" },
+  { name: "today", link: "/today" },
+  { name: "info", link: "/info" },
+  { name: "contact", link: "contact" },
+];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const langs = ["az", "gb", "ru"];
+const linkStyle = {
+  textDecoration: "none",
+  color: "#fff",
+};
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const { t } = useTranslation();
+
+  const handleLanguage = (lang) => {
+    changeLanguage(lang);
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -55,7 +75,7 @@ function Header() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            2900
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -88,8 +108,12 @@ function Header() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">
+                    <Link to={page.link} style={{ linkStyle }}>
+                      {page.name}
+                    </Link>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -114,24 +138,41 @@ function Header() {
           >
             LOGO
           </Typography>
-          <Button variant="primary">siyahını pdf yüklə</Button>
+          <Button
+            target="_blank"
+            href="https://mod.gov.az//images/pdf/dd9f576e1878889b988abcc106ccaf51.pdf"
+            variant="primary"
+            endIcon={<DownloadIcon />}
+          >
+            {t("header.downloadList")}
+          </Button>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
+              <Button key={page.name} onClick={handleCloseNavMenu}>
+                <Link style={linkStyle} to={page.link}>
+                  {t(`header.${page.name}`)}
+                </Link>
               </Button>
             ))}
           </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
+          <Box display="flex" gap={1}>
+            {langs.map((lang) => (
+              <IconButton key={lang} onClick={() => handleLanguage(lang)}>
+                <Avatar
+                  alt={lang}
+                  src={`http://country.io/static/flags/48/${lang}.png`}
+                />
+              </IconButton>
+            ))}
+          </Box>
+          <Box sx={{ flexGrow: 0, marginLeft: 10 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar
+                  alt="Elvin Shahsuvarli"
+                  src="/static/images/avatar/2.jpg"
+                />
               </IconButton>
             </Tooltip>
             <Menu

@@ -6,7 +6,6 @@ export default class Carousel extends Component {
     const arr = new Array(6).fill(1);
     const settings = {
       customPaging: function (i) {
-        console.log(i);
         return (
           <img
             style={{

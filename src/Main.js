@@ -6,9 +6,6 @@ import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import styled from "styled-components";
-import moment from "moment";
-import "moment/locale/az";
-import { Divider } from "@mui/material";
 
 const NewStack = styled(Stack)`
   display: flex;
@@ -29,22 +26,15 @@ const NewBox = styled(Box)`
 function Main() {
   const cardsPerPage = 30;
   const [page, setPage] = React.useState(1);
-  const today = moment().format("L").slice(0, 5);
 
   const handleChange = (event, value) => {
     setPage(value);
   };
   return (
     <div className="main-container">
-      <Typography variant="h4">Doğum günü bu gün olan şəhidlərimiz</Typography>
-      <Box style={{ display: "flex", flexWrap: "wrap", gap:10 }}>
-        {data
-          .filter((person) => person.date.startsWith(today))
-          .map((person) => (
-            <Person key={person.id} data={person} />
-          ))}
-      </Box>
-      <Typography variant="h4">Şəhidlərin siyahısı</Typography>
+      <Typography style={{ display: "block" }} m={5} variant="h4">
+        Şəhidlərin siyahısı
+      </Typography>
       <NewBox>
         {data
           .sort(function (a, b) {

@@ -1,6 +1,7 @@
 @import url(main.css);
 @import url(person.css);
 @import url(carousel.css);
+@import url(notfound.css);
 
 body {
   margin: 0;

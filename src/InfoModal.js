@@ -3,9 +3,6 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import Typography from "@mui/material/Typography";
-import data from "./assets/database.json";
-import Person from "./Person";
 import "moment/locale/az";
 
 const style = {
@@ -20,9 +17,8 @@ const style = {
   p: 4,
 };
 
-export default function BirthdayModal() {
+export default function InfoModal() {
   const [open, setOpen] = React.useState(true);
-  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
