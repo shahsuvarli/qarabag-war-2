@@ -16,14 +16,16 @@ const columns = [
     minWidth: 30,
     align: "left",
     value: "number",
+    type: "img",
   },
-  { id: "name", label: "Name", minWidth: 100, align: "left" },
-  { id: "title", label: "Title", minWidth: 100 },
+  { id: "name", label: "Name", minWidth: 100, align: "left", type: "text" },
+  { id: "title", label: "Title", minWidth: 100, type: "text" },
   {
     id: "date",
     label: "Birthday",
     minWidth: 100,
     align: "left",
+    type: "date",
   },
 ];
 
@@ -50,7 +52,12 @@ export default function ListTable() {
                 <TableCell
                   key={column.id}
                   align={column.align}
-                  style={{ minWidth: column.minWidth, background: "darkgrey" }}
+                  style={{
+                    minWidth: column.minWidth,
+                    background: "#1876d1",
+                    color: "#fff",
+                    fontWeight: "bold",
+                  }}
                 >
                   {column.label}
                 </TableCell>
@@ -67,8 +74,9 @@ export default function ListTable() {
                       const value = row[column.id];
                       return (
                         <TableCell key={column.id} align={column.align}>
-                          {column.id === "img" ? (
+                          {column.type === "img" ? (
                             <img
+                              width={140}
                               src={require(`./assets/${value}`)}
                               alt={value}
                             />
@@ -87,7 +95,7 @@ export default function ListTable() {
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
-        count={rows.length}
+        count={Math.ceil(rows.length / rowsPerPage)}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

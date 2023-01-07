@@ -18,3 +18,11 @@
   opacity: 0.8;
   cursor: pointer;
 }
+
+/* .slick-prev,
+.slick-next {
+  background-color: rebeccapurple !important;
+  height: 100% !important;
+  width: 50px !important;
+  z-index: 10 !important;
+} */

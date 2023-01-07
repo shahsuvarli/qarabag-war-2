@@ -3,14 +3,16 @@ import React from "react";
 
 function Person({ data }) {
   return (
-    <Card className="person-container" sx={{ height: 250, width: 170 }}>
+    <Card className="person-container">
       <CardMedia
-        sx={{ height: 200}}
+        sx={{ height: 200 }}
         component="img"
         image={require(`./assets/${data.img}`)}
         title={data.name}
       />
-      <Typography sx={{textAlign:'center'}} gutterBottom>{data.name}</Typography>
+      <Typography sx={{ textAlign: "center" }} gutterBottom>
+        {data.name}
+      </Typography>
     </Card>
   );
 }

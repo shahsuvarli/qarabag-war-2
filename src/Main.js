@@ -20,7 +20,7 @@ const NewBox = styled(Box)`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 `;
 
 function Main() {

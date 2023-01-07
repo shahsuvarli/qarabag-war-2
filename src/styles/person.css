@@ -8,7 +8,12 @@
 }
 
 .person-container {
-  width: 150px;
-  height: 200px;
+  width: 170px;
+  height: 250px;
   animation: display 2.5s ease-in-out 1;
+  transition: all 0.3s !important;
+}
+.person-container:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }

@@ -1,19 +1,21 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
+import "./styles/App.css";
 import Carousel from "./Carousel";
 import Header from "./Header";
 import Main from "./Main";
 import NotFound from "./NotFound";
 import Birthday from "./Birthday";
 import ListTable from "./ListTable";
-import Info from "./assets/Info";
+import Info from "./Info";
 import { Suspense } from "react";
+import InfoModal from './InfoModal'
+import Footer from "./Footer";
 
 function App() {
   return (
     <Suspense fallback='Loading...'>
       <div className="App">
-        {/* <InfoModal /> */}
+        <InfoModal/>
         <Header />
         <Carousel />
         <Routes>
@@ -24,6 +26,7 @@ function App() {
           <Route path="/contact" element={<Birthday />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer/>
         {/* <Main /> */}
       </div>
     </Suspense>

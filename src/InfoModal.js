@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import "moment/locale/az";
+import { Button, Link, Typography } from "@mui/material";
 
 const style = {
   position: "absolute",
@@ -14,6 +15,8 @@ const style = {
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
+  display: "flex",
+  flexDirection: "column",
   p: 4,
 };
 
@@ -46,9 +49,39 @@ export default function InfoModal() {
           }}
         >
           <Box sx={style}>
-            <Box style={{ display: "flex", flexWrap: "wrap" }}>
-              Məlumatlar müdafiə nazirliyinin saytına əsasən hazırlanmışdır
-            </Box>
+            <Typography component="h1">Hormətli istifadəçi,</Typography>
+            <br />
+            <Typography>
+              Sayt 2020-ci ildə Qarabağ uğrunda gedən döyüşlərdə və 2022-ci il
+              12-13 sentyabr tarixlərində erməni təxribatının qarşısının
+              alınmasında qəhrəmancasına mübarizə aparmış şəhidlərimizin əziz
+              xatirəsinə həsr olunmuşdur.
+            </Typography>
+            <br />
+            <Typography>
+              İnformasiya dəstəyinə görə{" "}
+              <a
+                style={{ textDecoration: "none" }}
+                href="https://www.linkedin.com/in/rufatmammadli/"
+              >
+                Rüfət Məmmədli
+              </a>
+              yə təşəkkürlər.
+            </Typography>
+            <br />
+            <Typography
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Button
+                target="_blank"
+                href="http://shahsuvarli.com"
+                variant="outlined"
+              >
+                shahsuvarli.com
+              </Button>
+            </Typography>
           </Box>
         </Fade>
       </Modal>

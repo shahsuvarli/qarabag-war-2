@@ -9,13 +9,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import DownloadIcon from "@mui/icons-material/Download";
 import { Link } from "react-router-dom";
 import { changeLanguage } from "i18next";
 import { useTranslation } from "react-i18next";
+import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 
 const pages = [
   { name: "list", link: "/list" },
@@ -23,7 +22,6 @@ const pages = [
   { name: "info", link: "/info" },
   { name: "contact", link: "contact" },
 ];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const langs = ["az", "gb", "ru"];
 const linkStyle = {
   textDecoration: "none",
@@ -32,7 +30,6 @@ const linkStyle = {
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const { t } = useTranslation();
 
@@ -43,23 +40,18 @@ function Header() {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
   };
 
   return (
     <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <LocalFireDepartmentIcon
+            sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+          />
           <Typography
             variant="h6"
             noWrap
@@ -75,7 +67,7 @@ function Header() {
               textDecoration: "none",
             }}
           >
-            2900
+            2783
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -110,8 +102,11 @@ function Header() {
               {pages.map((page) => (
                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
-                    <Link to={page.link} style={{ linkStyle }}>
-                      {page.name}
+                    <Link
+                      to={page.link}
+                      style={{ ...linkStyle, color: "#1876d1" }}
+                    >
+                      {t(`header.${page.name}`).toUpperCase()}
                     </Link>
                   </Typography>
                 </MenuItem>
@@ -119,7 +114,9 @@ function Header() {
             </Menu>
           </Box>
 
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <LocalFireDepartmentIcon
+            sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
+          />
           <Typography
             variant="h5"
             noWrap
@@ -165,38 +162,6 @@ function Header() {
                 />
               </IconButton>
             ))}
-          </Box>
-          <Box sx={{ flexGrow: 0, marginLeft: 10 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar
-                  alt="Elvin Shahsuvarli"
-                  src="/static/images/avatar/2.jpg"
-                />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
         </Toolbar>
       </Container>
