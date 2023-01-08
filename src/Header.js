@@ -10,14 +10,12 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import DownloadIcon from "@mui/icons-material/Download";
 import { Link } from "react-router-dom";
 import { changeLanguage } from "i18next";
 import { useTranslation } from "react-i18next";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 
 const pages = [
-  { name: "list", link: "/list" },
   { name: "today", link: "/today" },
   { name: "info", link: "/info" },
   { name: "contact", link: "contact" },
@@ -135,15 +133,6 @@ function Header() {
           >
             LOGO
           </Typography>
-          <Button
-            target="_blank"
-            href="https://mod.gov.az//images/pdf/dd9f576e1878889b988abcc106ccaf51.pdf"
-            variant="primary"
-            endIcon={<DownloadIcon />}
-          >
-            {t("header.downloadList")}
-          </Button>
-
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button key={page.name} onClick={handleCloseNavMenu}>

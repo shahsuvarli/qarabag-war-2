@@ -23,7 +23,7 @@ const NewBox = styled(Box)`
   gap: 20px;
 `;
 
-function Main() {
+function MartyrCards() {
   const cardsPerPage = 30;
   const [page, setPage] = React.useState(1);
 
@@ -32,8 +32,8 @@ function Main() {
   };
   return (
     <div className="main-container">
-      <Typography style={{ display: "block" }} m={5} variant="h4">
-        Şəhidlərin siyahısı
+      <Typography color={'#1876d1'}  m={5} variant="h4">
+        Şəhidlərimiz qürurumuzdur!
       </Typography>
       <NewBox>
         {data
@@ -51,16 +51,16 @@ function Main() {
             <Person data={elem} key={elem.id} />
           ))}
       </NewBox>
-      <NewStack spacing={3}>
-        <Typography>Səhifə: {page}</Typography>
+      <NewStack spacing={3} margin={3}>
         <Pagination
           count={Math.ceil(data.length / cardsPerPage)}
           page={page}
           onChange={handleChange}
         />
+        <Typography >Səhifə: {page}</Typography>
       </NewStack>
     </div>
   );
 }
 
-export default Main;
+export default MartyrCards;

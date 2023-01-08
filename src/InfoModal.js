@@ -46,6 +46,7 @@ export default function InfoModal() {
             width: "60%",
             outline: "none",
             borderRadius: 14,
+            border:'none'
           }}
         >
           <Box sx={style}>
@@ -67,20 +68,6 @@ export default function InfoModal() {
                 Rüfət Məmmədli
               </a>
               yə təşəkkürlər.
-            </Typography>
-            <br />
-            <Typography
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Button
-                target="_blank"
-                href="http://shahsuvarli.com"
-                variant="outlined"
-              >
-                shahsuvarli.com
-              </Button>
             </Typography>
           </Box>
         </Fade>
